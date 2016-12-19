@@ -6,8 +6,10 @@
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "lucid-ui": "^2.8.0",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
