@@ -16,7 +16,7 @@ class Status extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: 20}}>
-        <h1>Change Status</h1>
+        <h1>Status</h1>
         <ButtonGroup
         selectedIndices={this.state.isAcceptingCalls ? [1] : [0]}
         onSelect={(selectedIndex) => this.onSelectHandler(selectedIndex)}>

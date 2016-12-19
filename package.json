@@ -6,6 +6,7 @@
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "browser-request": "^0.3.3",
     "lucid-ui": "^2.8.0",
     "react": "^15.4.1",
     "react-addons-css-transition-group": "^15.4.1",
