@@ -15,12 +15,15 @@ class Status extends React.Component {
   }
   render() {
     return (
-      <ButtonGroup
-      selectedIndices={this.state.isAcceptingCalls ? [1] : [0]}
-      onSelect={(selectedIndex) => this.onSelectHandler(selectedIndex)}>
-        <ButtonGroup.Button>I'm Busy</ButtonGroup.Button>
-        <ButtonGroup.Button>Accepting Calls</ButtonGroup.Button>
-      </ButtonGroup>
+      <div style={{ paddingLeft: 20}}>
+        <h1>Change Status</h1>
+        <ButtonGroup
+        selectedIndices={this.state.isAcceptingCalls ? [1] : [0]}
+        onSelect={(selectedIndex) => this.onSelectHandler(selectedIndex)}>
+          <ButtonGroup.Button>I'm Busy</ButtonGroup.Button>
+          <ButtonGroup.Button>Accepting Calls</ButtonGroup.Button>
+        </ButtonGroup>
+      </div>
     );
   }
 }

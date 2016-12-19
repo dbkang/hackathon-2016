@@ -1,13 +1,10 @@
 import React from 'react';
 import {
   TextField,
-  Panel,
   CheckboxLabeled,
-  Dialog,
   Button,
-  SingleSelect,
-  LoadingIcon,
 } from 'lucid-ui';
+import { hashHistory } from 'react-router'
 
 class Register extends React.Component {
   constructor(props) {
@@ -34,21 +31,21 @@ class Register extends React.Component {
   }
   render() {
     return (
-      <div style={{ padding: 20 }}>
-        <h1 style={{ marginBottom: 20 }}>Register as a Volunteer for Call Me Maybe</h1>
+      <div style={{ paddingLeft: 20}}>
+        <h1 style={{ marginBottom: 20 }}>Sign Up for Call Me Maybe</h1>
         <div>
-          Name
-          <TextField style={{ marginLeft: 15, marginBottom: 15, width: 300}}
+          <span>Name:</span>
+          <TextField style={{ margin: 10, width: 300}}
           onChange={(name) => this.setState({name})}></TextField>
         </div>
         <div>
-          Email
-          <TextField style={{ marginLeft: 15, marginBottom: 15, width: 300}}
+          <span>Email:</span>
+          <TextField style={{ margin: 10, width: 300}}
           onChange={(email) => this.setState({email})}></TextField>
         </div>
         <div>
-          Phone number
-          <TextField style={{ marginLeft: 15, marginBottom: 15, width: 300}}
+          <span>Phone Number:</span>
+          <TextField style={{ margin: 10, width: 300}}
           onChange={(phone) => this.setState({phone})}></TextField>
         </div>
         <div>
@@ -56,6 +53,7 @@ class Register extends React.Component {
           {
             this.categories.map(({name, description}) => (
               <CheckboxLabeled
+              style={{ marginTop: 10 }}
               isSelected={this.state['expertise:' + name]}
               onSelect={(isSelected) => this.setState({['expertise:'+ name]: isSelected})}>
                 <CheckboxLabeled.Label>{description}</CheckboxLabeled.Label>
@@ -63,7 +61,9 @@ class Register extends React.Component {
             ))
           }
         </div>
-        <Button kind='primary'>Save</Button>
+        <Button kind='primary' style={{ marginTop: 10}}
+        onClick={() => hashHistory.push('/status')}
+        >Sign Up</Button>
         {JSON.stringify(this.state)}
       </div>
     )
