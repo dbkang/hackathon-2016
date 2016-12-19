@@ -64,7 +64,7 @@ class Register extends React.Component {
         <Button kind='primary' style={{ marginTop: 10}}
         onClick={() => hashHistory.push('/status')}
         >Sign Up</Button>
-        {JSON.stringify(this.state)}
+        <div style={{display: 'none'}}>{JSON.stringify(this.state)}</div>
       </div>
     )
   }
