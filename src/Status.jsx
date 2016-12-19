@@ -6,13 +6,12 @@ import {
 class Status extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    self = this;
+    this.state = {}; // needs to load from service
   }
   onSelectHandler(selectedIndex) {
     this.setState({
       isAcceptingCalls: selectedIndex === 1
-    });
+    }); // needs to synchronize to service
   }
   render() {
     return (
