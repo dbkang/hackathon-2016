@@ -15,6 +15,9 @@ class Register extends React.Component {
       email: '',
       phone: '',
       password: '',
+      is_song: 0,
+      is_mentoring: 0,
+      is_console: 0,
     };
     this.categories = [
       {
@@ -22,7 +25,7 @@ class Register extends React.Component {
         description: "Singing"
       },
       {
-        name: "is_mentoring",
+        name: "is_mentor",
         description: "Mentoring"
       },
       {
@@ -68,7 +71,7 @@ class Register extends React.Component {
               <CheckboxLabeled
               style={{ marginTop: 10 }}
               isSelected={this.state[name]}
-              onSelect={(isSelected) => this.setState({[name]: isSelected})}>
+              onSelect={(isSelected) => this.setState({[name]: (isSelected ? 1 : 0)})}>
                 <CheckboxLabeled.Label>{description}</CheckboxLabeled.Label>
               </CheckboxLabeled>
             ))
