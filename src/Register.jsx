@@ -4,7 +4,8 @@ import {
   CheckboxLabeled,
   Button,
 } from 'lucid-ui';
-import { hashHistory } from 'react-router'
+import { hashHistory } from 'react-router';
+import request from 'browser-request';
 
 class Register extends React.Component {
   constructor(props) {
@@ -16,16 +17,20 @@ class Register extends React.Component {
     };
     this.categories = [
       {
-        name: "singing",
-        description: "I can sing!"
+        name: "is_song",
+        description: "Singing"
       },
       {
-        name: "console",
-        description: "I can help with Console issues!"
+        name: "mentoring",
+        description: "Mentoring"
       },
       {
-        name: "workbuddy",
-        description: "I can coach someone through a challenging work situation"
+        name: "listening",
+        description: "Listening"
+      },
+      {
+        name: "juggling",
+        description: "Juggling"
       },
     ];
   }
@@ -34,27 +39,27 @@ class Register extends React.Component {
       <div style={{ paddingLeft: 20}}>
         <h1 style={{ marginBottom: 20 }}>Sign Up for Connexus</h1>
         <div>
-          <span>Name:</span>
+          <label style={{ display:'inline-block', width: 150}}>Username:</label>
           <TextField style={{ margin: 10, width: 300}}
           onChange={(name) => this.setState({name})}></TextField>
         </div>
         <div>
-          <span>Email:</span>
+          <span style={{ display:'inline-block', width: 150}}>Email:</span>
           <TextField style={{ margin: 10, width: 300}}
           onChange={(email) => this.setState({email})}></TextField>
         </div>
         <div>
-          <span>Password:</span>
+          <span style={{ display:'inline-block', width: 150}}>Password:</span>
           <input type="password" className={'lucid-TextField lucid-TextField-is-single-line'}
           style={{margin: 10, width: 300}}></input>
         </div>
         <div>
-          <span>Phone Number:</span>
+          <span style={{ display:'inline-block', width: 150}}>Phone Number:</span>
           <TextField style={{ margin: 10, width: 300}}
           onChange={(phone) => this.setState({phone})}></TextField>
         </div>
         <div>
-          <span>Expertise</span>
+          <h3>Sign me up for:</h3>
           {
             this.categories.map(({name, description}) => (
               <CheckboxLabeled
@@ -67,7 +72,15 @@ class Register extends React.Component {
           }
         </div>
         <Button kind='primary' style={{ marginTop: 10}}
-        onClick={() => hashHistory.push('/status')}
+        onClick={() => {
+          //request({method:'POST', url:'http://bryce.obviousdeception.com/hack/user/', body:'{"relaxed":true}', json:true}, function(er, response, body) {
+          //  if(er)
+          //    throw er;
+          //  console.log("I got: " + body);
+          //});
+          hashHistory.push('/status');
+
+        }}
         >Sign Up</Button>
         <div style={{display: 'none'}}>{JSON.stringify(this.state)}</div>
       </div>
