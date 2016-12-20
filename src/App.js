@@ -12,7 +12,7 @@ class App extends Component {
       <Router history={hashHistory}>
         <Route path="/">
           <IndexRedirect to='browse'/>
-          <Route path="status" component={Status}/>
+          <Route path="status/:id/:username" component={Status}/>
           <Route path="register" component={Register}/>
           <Route path="login" component={Login}/>
           <Route path="browse" component={Browse}/>

@@ -11,9 +11,10 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      username: '',
       email: '',
       phone: '',
+      password: '',
     };
     this.categories = [
       {
@@ -21,11 +22,11 @@ class Register extends React.Component {
         description: "Singing"
       },
       {
-        name: "mentoring",
+        name: "is_mentoring",
         description: "Mentoring"
       },
       {
-        name: "listening",
+        name: "is_console",
         description: "Listening"
       },
       {
@@ -41,17 +42,19 @@ class Register extends React.Component {
         <div>
           <label style={{ display:'inline-block', width: 150}}>Username:</label>
           <TextField style={{ margin: 10, width: 300}}
-          onChange={(name) => this.setState({name})}></TextField>
+          onChange={(username) => this.setState({username})}></TextField>
         </div>
         <div>
-          <span style={{ display:'inline-block', width: 150}}>Email:</span>
+          <label style={{ display:'inline-block', width: 150}}>Email:</label>
           <TextField style={{ margin: 10, width: 300}}
           onChange={(email) => this.setState({email})}></TextField>
         </div>
         <div>
-          <span style={{ display:'inline-block', width: 150}}>Password:</span>
+          <label style={{ display:'inline-block', width: 150}}>Password:</label>
           <input type="password" className={'lucid-TextField lucid-TextField-is-single-line'}
-          style={{margin: 10, width: 300}}></input>
+          style={{margin: 10, width: 300}}
+          onChange={(e) => this.setState({password: e.target.value})}
+          ></input>
         </div>
         <div>
           <span style={{ display:'inline-block', width: 150}}>Phone Number:</span>
@@ -64,8 +67,8 @@ class Register extends React.Component {
             this.categories.map(({name, description}) => (
               <CheckboxLabeled
               style={{ marginTop: 10 }}
-              isSelected={this.state['expertise:' + name]}
-              onSelect={(isSelected) => this.setState({['expertise:'+ name]: isSelected})}>
+              isSelected={this.state[name]}
+              onSelect={(isSelected) => this.setState({[name]: isSelected})}>
                 <CheckboxLabeled.Label>{description}</CheckboxLabeled.Label>
               </CheckboxLabeled>
             ))
@@ -73,13 +76,18 @@ class Register extends React.Component {
         </div>
         <Button kind='primary' style={{ marginTop: 10}}
         onClick={() => {
-          //request({method:'POST', url:'http://bryce.obviousdeception.com/hack/user/', body:'{"relaxed":true}', json:true}, function(er, response, body) {
-          //  if(er)
-          //    throw er;
-          //  console.log("I got: " + body);
-          //});
-          hashHistory.push('/status');
-
+          request({
+            method:'POST',
+            url:'http://bryce.obviousdeception.com/hack/user/',
+            body:JSON.stringify({ user: this.state }),
+            json:true
+          }, function(er, response, body) {
+            if (er) {
+              throw er;
+            } else {
+              hashHistory.push('/status/' + body.user.id + '/' + body.user.username);
+            }
+          });
         }}
         >Sign Up</Button>
         <div style={{display: 'none'}}>{JSON.stringify(this.state)}</div>
