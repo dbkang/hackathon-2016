@@ -7,7 +7,19 @@ import request from 'browser-request';
 class Status extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}; // needs to load from service
+    this.state = {};
+    const self = this;
+    request({
+      method:'GET',
+      url:'http://bryce.obviousdeception.com/hack/singerstatus/?id=' + props.params.id,
+      json:true
+    }, function(er, response, body) {
+      if (er) {
+        throw er;
+      } else {
+        self.setState({isAcceptingCalls : body.user.avail_status })
+      }
+    });
   }
   onSelectHandler(selectedIndex) {
     const { id, username } = this.props.params;
