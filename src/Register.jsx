@@ -32,7 +32,7 @@ class Register extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: 20}}>
-        <h1 style={{ marginBottom: 20 }}>Sign Up for ConNexus</h1>
+        <h1 style={{ marginBottom: 20 }}>Sign Up for Connexus</h1>
         <div>
           <span>Name:</span>
           <TextField style={{ margin: 10, width: 300}}
@@ -42,6 +42,11 @@ class Register extends React.Component {
           <span>Email:</span>
           <TextField style={{ margin: 10, width: 300}}
           onChange={(email) => this.setState({email})}></TextField>
+        </div>
+        <div>
+          <span>Password:</span>
+          <input type="password" className={'lucid-TextField lucid-TextField-is-single-line'}
+          style={{margin: 10, width: 300}}></input>
         </div>
         <div>
           <span>Phone Number:</span>
