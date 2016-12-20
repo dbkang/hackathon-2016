@@ -13,7 +13,7 @@ class Login extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: 20}}>
-        <h1>Login to Call Me Maybe</h1>
+        <h1>Login to ConNexus</h1>
         <div>
           <span>Username: </span>
           <input type="text" className={'lucid-TextField lucid-TextField-is-single-line'}

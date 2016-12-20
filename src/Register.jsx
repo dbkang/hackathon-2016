@@ -32,7 +32,7 @@ class Register extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: 20}}>
-        <h1 style={{ marginBottom: 20 }}>Sign Up for Call Me Maybe</h1>
+        <h1 style={{ marginBottom: 20 }}>Sign Up for ConNexus</h1>
         <div>
           <span>Name:</span>
           <TextField style={{ margin: 10, width: 300}}

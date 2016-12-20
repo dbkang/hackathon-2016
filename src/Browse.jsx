@@ -8,7 +8,7 @@ class Browse extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: 20}}>
-        <h1>Call Me Maybe</h1>
+        <h1>ConNexus</h1>
         <div>
           <p><Link to="/register">Sign Up</Link></p>
           <p><Link to="/login">Log In</Link></p>
